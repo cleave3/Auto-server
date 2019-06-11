@@ -1,0 +1,1 @@
+web: npm run migrations && npm run seeders && npm start
