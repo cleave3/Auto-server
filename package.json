@@ -1,5 +1,5 @@
 {
-  "name": "carStore",
+  "name": "server",
   "version": "1.0.0",
   "description": "A car sale web application for selling and buying new and used cars",
   "main": "index.js",
