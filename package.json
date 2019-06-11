@@ -1,0 +1,54 @@
+{
+  "name": "carStore",
+  "version": "1.0.0",
+  "description": "A car sale web application for selling and buying new and used cars",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "test": " npm run migrations && npm run seeders && nyc --reporter=html --reporter=text mocha --require @babel/register --exit || true",
+    "migrations": "babel-node database/migrations/migrations.js",
+    "seeders": "babel-node database/seeders/seeders.js"
+  },
+  "keywords": [
+    "car",
+    "sale"
+  ],
+  "author": "owhiroro cleave <owhiroroeghele@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "@babel/runtime": "^7.4.5",
+    "@hapi/joi": "^15.0.3",
+    "babel-loader": "^8.0.6",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cloudinary": "^1.14.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.1.4",
+    "multer": "^1.4.1",
+    "multer-storage-cloudinary": "^2.2.1",
+    "pg": "^7.11.0",
+    "shortid": "^2.2.14",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "^0.5.1",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "make-runnable": "^1.3.6",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.1"
+  }
+}
