@@ -4,7 +4,7 @@
   "description": "A car sale web application for selling and buying new and used cars",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js",
+    "start": "babel-node index.js",
     "test": " npm run migrations && npm run seeders && nyc --reporter=html --reporter=text mocha --require @babel/register --exit || true",
     "migrations": "babel-node database/migrations/migrations.js",
     "seeders": "babel-node database/seeders/seeders.js",
