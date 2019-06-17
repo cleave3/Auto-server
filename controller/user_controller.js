@@ -9,8 +9,8 @@ import Token from '../middleware/token';
 
 const { findByEmail } = find;
 const { userSignup } = insert;
-const userControl = {
-  async signup(req, res) {
+
+const signup = async (req, res) => {
     try {
       const {
         first_name, last_name, address, email, password,
@@ -44,10 +44,9 @@ const userControl = {
       }
       return res.status(400).send(error);
     }
-  },
+  };
 
-  // eslint-disable-next-line consistent-return
-  async login(req, res) {
+const login = async (req, res) => {
     try {
       const { email, password } = req.body;
       const userEmail = [email];
@@ -80,8 +79,7 @@ const userControl = {
         message: 'Email does not match any user account',
       });
     }
-  },
-}
+  };
 
  const userControl = {
   signup,
