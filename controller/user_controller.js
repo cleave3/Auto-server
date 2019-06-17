@@ -83,9 +83,9 @@ const userControl = {
   },
 }
 
-// const userControl = {
-//   signup,
-//   login,
-// };
+ const userControl = {
+  signup,
+  login,
+};
 
 export default userControl;
