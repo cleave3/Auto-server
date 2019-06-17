@@ -52,10 +52,6 @@ const login = async (req, res) => {
   const userEmail = [email];
   try {
     const user = await db.query(findByEmail, userEmail);
-    const {
-      user_id, first_name, last_name, is_admin,
-    } = user.rows[0];
-
     if (user.rows[0]) {
       const correctPassword = await bcrypt.compareSync(password, user.rows[0].password);
       if (!correctPassword) {
@@ -63,6 +59,9 @@ const login = async (req, res) => {
           message: 'password incorrect',
         })
       }
+      const {
+        user_id, first_name, last_name, is_admin,
+      } = user.rows[0];
       const token = await Token(user_id, email, first_name, last_name, is_admin);
       return res.status(200).json({
         status: 200,
