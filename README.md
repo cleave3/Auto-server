@@ -6,3 +6,4 @@
 * Express
 * Node
 * cloudinary    
+* Postgresql

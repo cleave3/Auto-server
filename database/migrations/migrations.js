@@ -4,7 +4,6 @@ import pool from '../db';
 const createTables = () => {
   const tables = `
   DROP TABLE IF EXISTS users;
-
   CREATE TABLE users (
     user_id UUID PRIMARY KEY,
     first_name VARCHAR NOT NULL,
@@ -14,9 +13,7 @@ const createTables = () => {
     password VARCHAR NOT NULL,
     is_admin BOOLEAN
   );
-
   DROP TABLE IF EXISTS cars;
-
   CREATE TABLE cars (
     car_id VARCHAR PRIMARY KEY,
     owner UUID NOT NULL,
@@ -32,8 +29,7 @@ const createTables = () => {
     description TEXT NOT NULL
   );
 
-  DROP TABLE IF EXISTS orders;
-
+ DROP TABLE IF EXISTS orders;
   CREATE TABLE orders (
     order_id VARCHAR PRIMARY KEY,
     buyer UUID NOT NULL,
