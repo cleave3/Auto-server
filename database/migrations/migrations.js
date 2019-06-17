@@ -3,9 +3,7 @@ import pool from '../db';
 
 const createTables = () => {
   const tables = `
-  DROP TABLE IF EXISTS users;
-
-  CREATE TABLE users (
+  CREATE TABLE IF NOT EXISTS users (
     user_id UUID PRIMARY KEY,
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
@@ -15,9 +13,7 @@ const createTables = () => {
     is_admin BOOLEAN
   );
 
-  DROP TABLE IF EXISTS cars;
-
-  CREATE TABLE cars (
+  CREATE TABLE IF NOT EXISTS cars (
     car_id VARCHAR PRIMARY KEY,
     owner UUID NOT NULL,
     created_on TIMESTAMP DEFAULT NOW(),
@@ -32,9 +28,7 @@ const createTables = () => {
     description TEXT NOT NULL
   );
 
-  DROP TABLE IF EXISTS orders;
-
-  CREATE TABLE orders (
+ CREATE TABLE IF NOT EXISTS orders (
     order_id VARCHAR PRIMARY KEY,
     buyer UUID NOT NULL,
     car_id VARCHAR NOT NULL,
