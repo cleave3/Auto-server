@@ -11,15 +11,15 @@ const { findByEmail } = find;
 const { userSignup } = insert;
 
 const signup = async (req, res) => {
-  const {
-    first_name, last_name, address, email, password,
-  } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  const is_admin = false;
-  const user_id = uuidv4();
-  const values = [user_id, first_name, last_name, address, email, hashedPassword, is_admin];
-
   try {
+    const {
+      first_name, last_name, address, email, password,
+    } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    const is_admin = false;
+    const user_id = uuidv4();
+    const values = [user_id, first_name, last_name, address, email, hashedPassword, is_admin];
+  
     await db.query(userSignup, values);
     const token = await Token(user_id, email, is_admin);
     return res.status(201).json({
@@ -48,9 +48,9 @@ const signup = async (req, res) => {
 
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
-  const userEmail = [email];
   try {
+    const { email, password } = req.body;
+    const userEmail = [email];
     const user = await db.query(findByEmail, userEmail);
     if (user.rows[0]) {
       const correctPassword = await bcrypt.compareSync(password, user.rows[0].password);
